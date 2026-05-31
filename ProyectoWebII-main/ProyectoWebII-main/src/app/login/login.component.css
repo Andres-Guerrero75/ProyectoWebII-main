@@ -1,0 +1,246 @@
+/* ==========================================
+   ✅ CAMBIO AQUÍ: Usamos :host en lugar de body
+   ========================================== */
+:host {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #e9fdf0; /* Tu color verde claro original */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  color: #333;
+  box-sizing: border-box;
+  padding-top: 40px; /* Un pequeño respiro arriba para que no quede pegado al borde del navegador */
+}
+
+/* Contenedor principal  */
+.login-container {
+  width: 100%;
+  max-width: 400px; /* Limita el ancho del login */
+  text-align: center;
+}
+
+/* Enlace superior "Volver al inicio" */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #018749;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+}
+
+.back-link i {
+  margin-right: 8px; /* Espacio entre flecha y texto */
+}
+
+.back-link:hover {
+  color: #016b3b;
+}
+
+/* Logo y texto del encabezado */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espacio entre ícono y texto */
+  margin-bottom: 20px;
+  margin-left: -90px; /* Corre a la izquierda el icono y el texto */
+}
+
+/* Ícono principal */
+.brand-icon img {
+  width: 50px; /* Ajusta el tamaño del logo */
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.brand-text h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #006633;
+}
+
+.brand-text p {
+  margin: 0;
+  color: #00994d;
+  font-size: 14px;
+}
+
+/* Título y subtítulo */
+.login-intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-intro h2 {
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.login-intro .subtitle {
+  color: #333;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Contenedor del formulario  */
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.container h2 {
+  text-align: center;
+  color: #367a25;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Campos del formulario */
+label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+/* Ícono de mensajería */
+label i.fa-envelope {
+  margin-right: 8px;
+  color: #2e3833;
+  filter: brightness(0) saturate(100%);
+}
+
+/* Ícono del candado */
+label i.fa-lock {
+  color: transparent;
+  -webkit-text-stroke: 1px #2e3833; /* Solo borde */
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #c7e9d3;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #00b050;
+}
+
+/* Opciones: recordar y enlace contraseña */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.options a {
+  color: #00a64f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* Botón Iniciar Sesión  */
+.btn-login {
+  background-color: #00a64f;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #009043;
+}
+
+/* Texto de registro  */
+.register-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #00a64f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+  color: #32d355;
+}
+
+.nav-link {
+  color: #00994d;
+  text-decoration: none;
+  padding: 6px 0;
+  font-size: 0.98rem;
+  transition: color 0.18s ease;
+}
+
+/* Contenedor de beneficios  */
+.benefits-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.benefits-container h3 {
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+.benefits-list i {
+  background-color: #c7f3d1;
+  color: #00a64f;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}

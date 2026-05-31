@@ -1,0 +1,117 @@
+<div class="login-container">
+
+  <a href="#" class="back-link">
+    <i class="fa-solid fa-arrow-left"></i> volver al inicio
+  </a>
+
+  <div class="brand-header">
+    <div class="brand-icon">
+      <img src="logotipo.png" alt="Logo Naturals Samada" class="brand-logo">
+    </div>
+    <div class="brand-text">
+      <h2>Natural's Samada</h2>
+      <p>Farmacia Naturista</p>
+    </div>
+  </div>
+
+  <div class="login-intro">
+    <h2>Crear Cuenta</h2>
+    <p class="subtitle">Únete a nuestra comunidad y descubre el poder de la medicina natural</p>
+  </div>
+
+  <form class="container">
+    <h2>Informacion Personal</h2>
+
+    <label for="nombre"><i class="far fa-user"></i> Nombre Completo </label>
+    <input
+      type="text"
+      id="nombre"
+      placeholder="Juan Perez Lopez"
+      [(ngModel)]="nombre"
+      name="nombre"
+    >
+    <p *ngIf="mensajeNombre" style="color: red; font-size: 17px;">{{ mensajeNombre }}</p>
+
+    <label for="email"><i class="far fa-envelope"></i> Correo Electronico</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="tu@email.com"
+      [(ngModel)]="email"
+      name="email"
+    >
+    <p *ngIf="mensajeCorreo" style="color: red; font-size: 17px;">{{ mensajeCorreo }}</p>
+
+    <label for="tel"><i class="fa-solid fa-phone"></i> Telefono</label>
+    <input
+      type="tel"
+      id="tel"
+      placeholder="+57"
+      [(ngModel)]="tel"
+      name="tel"
+      (input)="soloNumeros($event)"
+      maxlength="10"
+    >
+    <p *ngIf="mensajeTel" style="color: red; font-size: 17px;">{{ mensajeTel }}</p>
+
+    <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="••••••••"
+      [(ngModel)]="password"
+      name="password"
+    >
+    <p *ngIf="mensajePassword" style="color: red; font-size: 17px;">{{ mensajePassword }}</p>
+
+    <label for="confirmacionC"><i class="fa-solid fa-lock"></i> Confirmar Contraseña</label>
+    <input
+      type="password"
+      id="confirmacionC"
+      placeholder="••••••••"
+      [(ngModel)]="confirmacionC"
+      name="confirmacionC"
+    >
+    <p *ngIf="mensajeConfirmacion" style="color: red; font-size: 17px;">{{ mensajeConfirmacion }}</p>
+
+    <div class="options">
+      <label>
+        <input type="checkbox" [(ngModel)]="aceptaTerminos" name="terminos"/>
+        Acepto los <a routerLink="/terminosCondiciones">términos y condiciones</a> y la
+        politica de privacidad
+      </label>
+    </div>
+
+    <button type="button" class="btn-login" (click)="guardarRegistro()">Crear Cuenta</button>
+
+    <p *ngIf="mensajeError" style="color: red; font-size: 15px; text-align: center;">{{mensajeError}}</p>
+
+    <p class="register-text">¿Ya tienes una cuenta?
+      <a routerLink="/login" class="login-link">inicia sesion aqui</a>
+    </p>
+  </form>
+
+  <div class="benefits-container">
+    <h3>¿Por que elegir Samada?</h3>
+
+    <ul class="benefits-list">
+      <li>
+        <i class="fa-solid fa-seedling"></i>
+        Productos 100% naturales y orgánicos certificados
+      </li>
+      <li>
+        <i class="fa-solid fa-user-doctor"></i>
+        Asesoría personalizada con especialistas en medicina natural
+      </li>
+      <li>
+        <i class="fa-solid fa-truck"></i>
+        Envío gratuito en compras mayores a $500
+      </li>
+      <li>
+        <i class="fa-solid fa-sack-dollar"></i>
+        Descuentos exclusivos para miembros registrados
+      </li>
+    </ul>
+  </div>
+
+</div>

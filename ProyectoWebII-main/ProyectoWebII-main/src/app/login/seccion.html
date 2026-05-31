@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicicio de sesion</title>
+    <link rel="stylesheet" href="stylesLogin.css">
+
+      <!-- Íconos de Font Awesome, utilizo una librearia directamente desde los servidores de font awesome
+       sin necesidad de descargarla. --> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!--
+  iconos: 
+  "fa-soli fa-enveloper"   :icono de correo
+  "fa-solid fa-lock"       : candado
+  -->
+
+  <!--div que es el contenedor principal de todo el login-->
+  <div class="login-container">
+    
+    <!--Enlace-->
+    <a href="#" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i>volver al inicio
+    </a>
+
+    <!-- Logo y nombre -->
+        <div class="brand-header">
+            <div class="brand-icon">
+                  <img src="../../img/Logo.png" alt="Logo Naturals Samada" class="brand-logo">
+            </div>
+            <div class="brand-text">
+                <h2>Naturals Samada</h2>
+                <p>Farmacia Naturista</p>
+            </div>
+        </div>
+
+    <!--titulo y subtitulo-->
+    <div class="login-intro"> 
+    <h2>Iniciar Sesión</h2>
+    <p class="subtitle">Accede a tu cuenta para gestionar tus pedidos y preferencias</p>
+  </div>     
+
+    <!--(form) formulario de inicio sesion-->
+    <form class="container">
+      <h2>Bienvenido de vuelta</h2>
+      <!--campo de correo-->
+      <label for="email"><i class="far fa-envelope"></i> Correo electrónico</label>
+      <input type="email" id="email" placeholder="tu@email.com" required>
+       
+      <!--campo de contraseña-->
+      <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+      <input type="password" id="password" placeholder="••••••••" required>
+
+      <!--campos adicionales-->
+      <div class="options">
+        <label><input type="checkbox"> Recordarme</label>
+        <a href="#">¿Olvidaste tu contraseña?</a> <!--enlace para recuperar contraseña-->
+      </div>
+
+      <!--boton de iniciar-->
+      <button type="submit" class="btn-login">Iniciar Sesión</button>
+      <!--enlance para el registro-->
+      <p class="register-text">¿No tienes una cuenta? <a href="#">Regístrate aquí</a></p>
+    </form>
+
+    <!-- recuadro informativo -->
+<div class="benefits-container">
+  <h3>Beneficios de tener cuenta</h3>
+
+  <ul class="benefits-list">
+    <li>
+      <i class="fa-solid fa-check"></i> 
+      Historial de compras y seguimiento de pedidos
+    </li>
+    <li>
+      <i class="fa-solid fa-check"></i> 
+      Ofertas exclusivas y descuentos especiales
+    </li>
+    <li>
+      <i class="fa-solid fa-check"></i> 
+      Recomendaciones personalizadas de productos
+    </li>
+  </ul>
+</div>
+
+  </div>  
+
+</body>
+</html>

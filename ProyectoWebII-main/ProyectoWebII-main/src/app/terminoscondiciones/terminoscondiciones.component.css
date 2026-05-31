@@ -1,0 +1,165 @@
+/*  Estilos generales  */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #e9fdf0;
+  min-height: 100vh;
+  margin: 0;
+  color: #333;
+  text-align: center;
+}
+
+/* Contenedor principal  */
+.login-container {
+  width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto;     
+  padding: 0 20px;    
+  box-sizing: border-box;
+}
+
+/* Enlace superior "Volver al inicio" */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #018749;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+
+  transition: color 0.2s ease;
+}
+
+.back-link i {
+  margin-right: 8px; 
+}
+
+.back-link:hover {
+  color: #0f0f0f;
+}
+
+/* Logo y texto del encabezado */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px; 
+  margin-left: -80px;
+}
+
+/*icnono principal*/
+.brand-icon img {
+   width: 50px;        
+  height: auto;
+  display: block;      
+  margin: 0 auto 10 px;
+}
+
+.brand-text h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #006633;
+}
+
+.brand-text p {
+  margin: 0;
+  color: #00994d;
+  font-size: 14px;
+}
+
+
+
+/* titulo y subtitulo */
+.login-intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-intro h2 {
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.login-intro .subtitle {
+  color: #333;
+  font-size: 14px;
+  margin-top: 5px;
+}
+/**/
+.menu {
+  max-width: 900px;       
+  margin: 40px auto;          
+  padding: 0 20px; 
+}
+.menu h2{
+  text-align: center;       
+  color: #00994d;           
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+
+}
+
+.menu p {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: justify;      
+  margin-top: 20px;
+}
+
+
+/* ---------------- FOOTER ---------------- */
+
+.footer {
+width: 100%;                
+  background-color: #14532d;
+  color: #fff;
+  padding: 50px 0;
+  margin-top: 60px;           
+  position: relative;
+  bottom: 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 30px;
+}
+
+.footer h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  color: #d1fae5;
+  margin: 4px 0;
+}
+
+.footer .licencia {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #a7f3d0;
+}
+
+.footer-bottom {
+  border-top: 1px solid #047857;
+  margin-top: 25px;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #a7f3d0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

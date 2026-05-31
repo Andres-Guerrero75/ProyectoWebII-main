@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar Contraseña | Natural's Samada</title>
+  <link rel="stylesheet" href="recuperacion.component.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-content">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+        <p class="brand-name">Natural's Samada</p>
+      </div>
+
+      <!-- Checkbox oculto -->
+      <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+      <!-- Label actúa como botón hamburguesa -->
+      <label for="menu-toggle" class="menu-icon">☰</label>
+
+      <!-- Menú + Botones agrupados -->
+      <div class="menu-right">
+        <nav class="nav">
+          <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+          <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
+          <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
+          <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
+          <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
+        </nav>
+        <div class="auth">
+          <a routerLink="/login" class="nav-link" routerLinkActive="active">Iniciar Sesión</a>
+          <a routerLink="/registro" class="nav-link" routerLinkActive="active">Registrarse</a>
+
+          <div class="logo">
+            <a href="#"><img src="/car.png" alt="Carrito" class="car-img" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FORMULARIO RECUPERAR CONTRASEÑA -->
+  <section class="recuperar">
+    <div class="recuperar-container">
+      <h2>¿Olvidaste tu contraseña?</h2>
+      <p>Ingresa tu correo electrónico registrado y te enviaremos un enlace para restablecer tu contraseña.</p>
+
+      <form class="recuperar-form" (submit)="onSubmit($event)">
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ejemplo@correo.com"
+          required
+        />
+
+        <button type="submit" class="btn btn-outline1">Enviar enlace de recuperación</button>
+
+        <p class="volver-login">
+          ¿Recordaste tu contraseña?
+          <a routerLink="/login" class="link">Inicia sesión aquí</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- Información de contacto -->
+      <div>
+        <h3>Información de Contacto</h3>
+        <p>📞 +57 3166412518</p>
+        <p>📧 samadagmail.com</p>
+        <p>📍 Popayán, Cauca</p>
+      </div>
+
+      <!-- Horarios -->
+      <div>
+        <h3>Horarios de Atención</h3>
+        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+        <p>Sábados: 9:00 AM - 6:00 PM</p>
+      </div>
+
+      <!-- Información adicional -->
+      <div>
+        <h3>Natural's Samada</h3>
+        <p>El mejor socio para un plan de vida saludable</p>
+        <p class="licencia">Licencia sanitaria: COFEPRIS-123456</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

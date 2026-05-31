@@ -1,0 +1,268 @@
+/*  Estilos generales  */
+body {
+ font-family: "Segoe UI", sans-serif;
+  background-color: #e9fdf0;
+  margin: 0;
+  color: #333;
+  min-height: 100vh;
+  /* quitar centrado vertical que corta contenido: */
+  display: block;
+}
+
+/* Contenedor principal  */
+.login-container {
+  width: 100%;
+  max-width: 700px;    
+  margin: 24px auto;    
+  padding: 0 16px;      
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Enlace superior "Volver al inicio" */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #018749;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+}
+
+.back-link i {
+  margin-right: 8px; /* Espacio entre flecha y texto */
+}
+/* hover para cambiar el color cuando el usuario
+pasa el cursor*/
+.back-link:hover {
+  color: #181b1b;
+}
+
+/* Logo y texto del encabezado */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Espacio entre ícono y texto */
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: -80px; /*para correr un a la izquierda el icono y el "naturalsamada y farmacia naturista"*/
+  
+}
+
+/*icnono principal*/
+.brand-icon img {
+   width: 56px;        /* ajusta el tamaño del logo */
+  height: auto;
+  display: block;      
+  margin: 0 auto;
+}
+
+.brand-text h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #006633;
+}
+
+.brand-text p {
+  margin: 0;
+  color: #00994d;
+  font-size: 14px;
+}
+
+
+
+/* titulo y subtitulo */
+.login-intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-intro h2 {
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 400; /*letra mas delgada*/
+}
+
+.login-intro .subtitle {
+  color: #333;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* Contenedor del formulario  */
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 50px;
+  text-align: left;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 400px;
+  
+}
+
+.container h2 {
+  text-align: center;
+  color: #367a25;
+  margin-bottom: 40px;
+  font-size: 15px; /* Más pequeño que el tamaño por defecto */
+  font-weight: 400; /* Más delgado (normal) */
+  /* font-weight: 300; */ /* Si quieres aún más delgado */
+}
+
+/*Campos del formulario */
+label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+/*icono de mensajeria*/
+label i.fa-envelope {
+  margin-right: 8px;
+  color: #2e3833;
+  filter: brightness(0) saturate(100%);
+}
+
+/*icono de telefono*/
+label i.fa-phone {
+    color: transparent;
+  -webkit-text-stroke: 1px #2e3833; /* Solo borde */
+}
+
+/*icono de candado*/
+label i.fa-lock {
+    color: transparent;
+  -webkit-text-stroke: 1px #2e3833; /* Solo borde */
+}
+
+
+
+/*minimo 8 caracteres del cajon de contraseña*/
+.help-text {
+  display: block;
+  font-size: 0.7rem;
+  color: #6b6b6b;
+  margin-top: 4px;
+}
+
+/*cajones de texto*/
+
+input[type="nombre"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  background-color: #eeeff0 ;  
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #91d4af;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #00b050;
+}
+
+/*Opciones: recordar y enlace contraseña */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.options a {
+  color: #00a64f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.options a:hover {
+  text-decoration: underline;
+}
+
+/* Botón Iniciar Sesión  */
+.btn-login {
+  background-color: #00a64f;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #009043;
+}
+
+/*  Texto de registro  */
+.register-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #00a64f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/*  contenedor  de beneficios final */
+.benefits-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.benefits-container h3 {
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  display: inline-block; /* para que la lista no se extienda todo el ancho */
+  text-align: left;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+/*color para icones de el segundo bloque ¿porqu elegir samada?*/
+.benefits-list i {
+  background-color: #c7f3d1;
+  color: #74b192;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}

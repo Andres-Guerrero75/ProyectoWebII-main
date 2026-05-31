@@ -1,0 +1,120 @@
+<header class="header">
+  <div class="container header-content">
+
+    <div class="logo">
+      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+      <p class="brand-name">Natural's Samada</p>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu-right">
+      <nav class="nav">
+        <a routerLink="/" routerLinkActive="active" class="nav-link">Inicio</a>
+        <a routerLink="/productos" routerLinkActive="active" class="nav-link">Productos</a>
+        <a routerLink="/clientes" routerLinkActive="active" class="nav-link">Clientes</a>
+        <a routerLink="/proveedores" routerLinkActive="active" class="nav-link">Proveedores</a>
+        <a routerLink="/ventas" routerLinkActive="active" class="nav-link">Ventas</a>
+      </nav>
+
+      <div class="auth">
+        <ng-container *ngIf="!isLoggedIn">
+          <a routerLink="/login" class="nav-link btn ghost">Iniciar Sesión</a>
+          <a routerLink="/registro" class="nav-link btn ghost">Registrarse</a>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+            <span style="font-size: 0.95rem; font-weight: 500; margin-right: 12px; color: #ffffff;">
+              ¡Hola, {{ nombreUsuario }}!
+            </span>
+          <button (click)="cerrarSesion()" class="btn ghost" style="cursor: pointer; border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; border-radius: 4px;">
+            Cerrar Sesión
+          </button>
+        </ng-container>
+
+        <!-- CARRITO INTEGRADO -->
+        <button (click)="carritoService.toggleCarrito()" style="background: none; border: none; cursor: pointer; position: relative; padding: 0; margin-left: 10px;">
+          <img src="/car.png" alt="Carrito" class="car-img" style="width: 35px;" />
+          <span *ngIf="carritoService.contarProductos() > 0" class="badge green" style="position: absolute; top: -5px; right: -5px; background: #16a34a; color: white; border-radius: 50%; padding: 4px 8px; font-size: 11px; font-weight: bold; line-height: 1;">
+            {{ carritoService.contarProductos() }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <div class="container">
+    <header class="ventas-header">
+      <div>
+        <h1>Gestión de Ventas</h1>
+        <p>Administra y registra todas las ventas de la farmacia</p>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="card stat-card">
+        <span class="icon">$</span>
+        <div>
+          <p class="label">Ventas Totales</p>
+          <p class="value">$2,894,000</p>
+        </div>
+      </div>
+      <div class="card stat-card">
+        <span class="icon">🛒</span>
+        <div>
+          <p class="label">Completadas</p>
+          <p class="value">4</p>
+        </div>
+      </div>
+      <div class="card stat-card">
+        <span class="icon">📈</span>
+        <div>
+          <p class="label">Venta Promedio</p>
+          <p class="value">$723,000</p>
+        </div>
+      </div>
+      <div class="card stat-card">
+        <span class="icon">📅</span>
+        <div>
+          <p class="label">Pendientes</p>
+          <p class="value">1</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card sales-list">
+      <h2>Historial de Ventas</h2>
+      <div class="sale-item">
+        <div class="sale-header">
+          <span class="sale-id">V001</span>
+          <span class="sale-date">2024-09-22</span>
+        </div>
+        <div class="sale-body">
+          <p><strong>Cliente:</strong> María García</p>
+          <div class="product-list">
+            <span>Ginkgo x2</span>
+            <span>Té Verde x1</span>
+          </div>
+          <p><strong>Método:</strong> Tarjeta</p>
+        </div>
+        <div class="sale-footer">
+          <span class="badge green">Completada</span>
+          <span class="total">$734</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div><h3>Información de Contacto</h3><p>📞 +57 3166412518</p><p>📧 samada&#64;gmail.com</p><p>📍 Popayán, Cauca</p></div>
+    <div><h3>Horarios de Atención</h3><p>Lunes a Viernes: 9:00 AM - 6:00 PM</p></div>
+    <div><h3>Natural's Samada</h3><p>El mejor socio para un plan de vida saludable</p></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Natural's Samada Farmacia Naturista. Todos los derechos reservados.</p>
+  </div>
+</footer>

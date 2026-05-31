@@ -1,0 +1,155 @@
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">
+      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+      <p class="brand-name">Natural's Samada</p>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu-right">
+      <nav class="nav">
+        <a routerLink="/" class="nav-link">Inicio</a>
+        <a routerLink="/productos" class="nav-link">Productos</a>
+        <a routerLink="/clientes" class="nav-link">Clientes</a>
+        <a routerLink="/proveedores" class="nav-link active">Proveedores</a>
+        <a routerLink="/ventas" class="nav-link">Ventas</a>
+      </nav>
+
+      <div class="auth">
+        <ng-container *ngIf="!isLoggedIn">
+          <a routerLink="/login" class="btn ghost">Iniciar Sesión</a>
+          <a routerLink="/registro" class="btn ghost">Registrarse</a>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+          <span style="font-size: 0.95rem; font-weight: 500; margin-right: 12px; color: #fef6f6;">
+            ¡Hola, {{ nombreUsuario }}!
+          </span>
+          <button (click)="cerrarSesion()" class="btn ghost"
+                  style="cursor: pointer; border: 1px solid rgba(42, 40, 40, 0.3); padding: 0.5rem 1rem; border-radius: 4px;">
+            Cerrar Sesión
+          </button>
+        </ng-container>
+
+        <button (click)="carritoService.toggleCarrito()" style="background: none; border: none; cursor: pointer; position: relative; padding: 0; margin-left: 10px;">
+          <img src="/car.png" alt="Carrito" class="car-img" style="width: 35px;" />
+          <span *ngIf="carritoService.contarProductos() > 0" class="badge green" style="position: absolute; top: -5px; right: -5px; background: #16a34a; color: white; border-radius: 50%; padding: 4px 8px; font-size: 11px; font-weight: bold; line-height: 1;">
+            {{ carritoService.contarProductos() }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="main-container">
+  <div class="container-inner">
+    <div class="page-header">
+      <div class="header-text">
+        <h1>Gestión de Proveedores</h1>
+        <p>Administra tu red de proveedores y distribuidores</p>
+      </div>
+      <button class="btn btn-primary" *ngIf="esAdmin" (click)="openModal()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>Nuevo Proveedor</span>
+      </button>
+    </div>
+
+    <div class="search-box">
+      <div class="search-input-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" class="input" placeholder="Buscar proveedores por nombre o productos..."
+               [(ngModel)]="searchTerm" (input)="filterSuppliers()" />
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="card">
+        <div class="stat-content">
+          <svg class="stat-icon-svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <div>
+            <p class="stat-label">Total Proveedores</p>
+            <p class="stat-value">{{ suppliers.length }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="stat-content">
+          <div class="stat-icon green">✓</div>
+          <div>
+            <p class="stat-label">Activos</p>
+            <p class="stat-value">{{ getActiveCount() }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="stat-content">
+          <div class="stat-icon yellow">⏳</div>
+          <div>
+            <p class="stat-label">Pendientes</p>
+            <p class="stat-value">{{ getPendingCount() }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="stat-content">
+          <div class="stat-icon blue">⭐</div>
+          <div>
+            <p class="stat-label">Rating Promedio</p>
+            <p class="stat-value">{{ getAverageRating() }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredSuppliers.length > 0; else emptyState" class="suppliers-grid">
+      <div class="supplier-card" *ngFor="let supplier of filteredSuppliers">
+        <div class="supplier-header">
+          <div class="supplier-title">
+            <h3 class="supplier-name">{{ supplier.name }}</h3>
+            <span class="badge" [ngClass]="supplier.status === 'Activo' ? 'active' : 'pending'">{{ supplier.status }}</span>
+          </div>
+          <div class="rating" *ngIf="supplier.rating > 0">
+            <span>{{ getRatingStars(supplier.rating) }}</span>
+            <span>({{ supplier.rating }}/5)</span>
+          </div>
+        </div>
+
+        <div class="supplier-content">
+          <div class="info-row">📧 <span>{{ supplier.email }}</span></div>
+          <div class="info-row">📞 <span>{{ supplier.phone }}</span></div>
+          <div class="info-row">🏢 <span>{{ supplier.address || 'No especificada' }}</span></div>
+          <div class="products-section">
+            <p class="products-label">Productos:</p>
+            <div class="products-tags">
+              <span class="badge outline" *ngFor="let product of supplier.products">{{ product }}</span>
+            </div>
+          </div>
+          <div class="last-order">Último pedido: {{ supplier.lastOrder }}</div>
+          <div class="actions">
+            <button class="btn btn-sm btn-outline" (click)="contactSupplier(supplier.email)">Contactar</button>
+            <button class="btn btn-sm btn-primary" (click)="newOrder(supplier.id)">Nuevo Pedido</button>
+            <button class="btn btn-sm btn-delete" *ngIf="esAdmin" (click)="deleteSupplier(supplier.id)">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <h3>No se encontraron proveedores</h3>
+        <p>Intenta ajustar el término de búsqueda</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

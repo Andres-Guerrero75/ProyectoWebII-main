@@ -1,0 +1,15 @@
+<div *ngIf="carritoService.mostrarCarrito" class="carrito-panel" style="position:fixed; top:0; right:0; width:350px; height:100%; background:white; z-index:9999; box-shadow:-2px 0 5px rgba(0,0,0,0.2); padding:1rem; overflow-y:auto;">
+  <div class="carrito-header" style="display:flex; justify-content:space-between;">
+    <h2>🛒 Carrito ({{ carritoService.contarProductos() }})</h2>
+    <button (click)="carritoService.toggleCarrito()">✖</button>
+  </div>
+
+  <div class="carrito-items">
+    <div *ngFor="let item of carritoService.obtenerProductos()" style="padding:10px 0; border-bottom:1px solid #ccc;">
+      {{ item.nombre }} - ${{ item.preciov || item.precio }}
+      <button (click)="carritoService.eliminarProducto(item)">🗑️</button>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

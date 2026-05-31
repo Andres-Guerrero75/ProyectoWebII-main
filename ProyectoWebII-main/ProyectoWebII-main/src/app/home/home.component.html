@@ -1,0 +1,116 @@
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">
+      <img src="/logotipo.png" alt="Logo Samada" class="logo-img" />
+      <p class="brand-name">Natural's Samada</p>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <div class="menu-right">
+      <nav class="nav">
+        <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLink="/productos" class="nav-link" routerLinkActive="active">Productos</a>
+        <a routerLink="/clientes" class="nav-link" routerLinkActive="active">Clientes</a>
+        <a routerLink="/proveedores" class="nav-link" routerLinkActive="active">Proveedores</a>
+        <a routerLink="/ventas" class="nav-link" routerLinkActive="active">Ventas</a>
+      </nav>
+
+      <div class="auth">
+        <ng-container *ngIf="!isLoggedIn">
+          <a routerLink="/login" class="btn ghost">Iniciar Sesión</a>
+          <a routerLink="/registro" class="btn ghost">Registrarse</a>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+          <span style="font-size: 0.95rem; font-weight: 500; margin-right: 12px; color: #ffffff;">
+            ¡Hola, {{ nombreUsuario }}!
+          </span>
+          <button (click)="cerrarSesion()" class="btn ghost" style="cursor: pointer; border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; border-radius: 4px; background: transparent; color: white;">
+            Cerrar Sesión
+          </button>
+        </ng-container>
+
+        <!-- CARRITO CORREGIDO -->
+        <button (click)="carritoService.toggleCarrito()" style="background: none; border: none; cursor: pointer; position: relative; padding: 0;">
+          <img src="/car.png" alt="Carrito" class="car-img" />
+          <span *ngIf="carritoService.contarProductos() > 0" class="badge green" style="position: absolute; top: -5px; right: -5px; background: #16a34a; color: white; border-radius: 50%; padding: 4px 8px; font-size: 11px; font-weight: bold; line-height: 1;">
+            {{ carritoService.contarProductos() }}
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    <h1>Bienestar natural a tu alcance</h1>
+    <p>Descubre el poder de la medicina natural con productos <strong>100% Naturales</strong> de alta calidad.</p>
+    <div class="banner-buttons">
+      <a routerLink="/productos" class="btn btn-outline">Ver Catalogo</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Bienvenido a Natural's Samada</h2>
+  <p>Crea una cuenta para almacenar tu información y tener acceso a compras online.</p>
+  <div class="cta-buttons">
+    <a routerLink="/registro" class="btn btn-outline1">Registrarse</a>
+    <a routerLink="/login" class="btn btn-outline1">Ya tengo cuenta</a>
+  </div>
+</section>
+
+<section class="productos">
+  <h2>Productos en Oferta</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="/Valeriana.png" alt="Gotas de Valeriana">
+      <span class="badge">-10%</span>
+      <h3 class="product-name">Gotas de Valeriana</h3>
+      <p class="price">$28.000</p>
+      <button class="btn btn-outline-card" (click)="agregarAlCarrito({ id: 101, nombre: 'Gotas de Valeriana', precio: 28000 })">Agregar al Carrito</button>
+    </div>
+    <div class="card">
+      <img src="/TeVerde.png" alt="Té Verde Orgánico">
+      <span class="badge">-10%</span>
+      <h3 class="product-name">Té Verde Orgánico</h3>
+      <p class="price">$50.000</p>
+      <button class="btn btn-outline-card" (click)="agregarAlCarrito({ id: 102, nombre: 'Té Verde Orgánico', precio: 50000 })">Agregar al Carrito</button>
+    </div>
+    <div class="card">
+      <img src="/CarbonActivado.png" alt="Carbón Activado">
+      <span class="badge">-12%</span>
+      <h3 class="product-name">Carbon Activado</h3>
+      <p class="price">$35.000</p>
+      <button class="btn btn-outline-card" (click)="agregarAlCarrito({ id: 103, nombre: 'Carbon Activado', precio: 35000 })">Agregar al Carrito</button>
+    </div>
+    <div class="card">
+      <img src="/Transveratrol.png" alt="Transveratrol + NAD">
+      <span class="badge">-14%</span>
+      <h3 class="product-name">Transveratrol + NAD</h3>
+      <p class="price">$70.000</p>
+      <button class="btn btn-outline-card" (click)="agregarAlCarrito({ id: 104, nombre: 'Transveratrol + NAD', precio: 70000 })">Agregar al Carrito</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>Contacto</h3>
+      <p>📞 +57 3166412518</p>
+      <p>📧 samada&#64;gmail.com</p>
+    </div>
+    <div>
+      <h3>Horarios</h3>
+      <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Natural's Samada. Todos los derechos reservados.</p>
+  </div>
+</footer>

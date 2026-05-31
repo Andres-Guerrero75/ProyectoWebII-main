@@ -1,0 +1,90 @@
+<!-- Div que es el contenedor principal de todo el login -->
+<div class="login-container">
+
+  <!-- Enlace Volver al Inicio -->
+  <a routerLink="/" class="back-link">
+    <i class="fa-solid fa-arrow-left"></i>Volver al Inicio
+  </a>
+
+  <!-- Logo y nombre -->
+  <div class="brand-header">
+    <div class="brand-icon">
+      <img src="/logotipo.png" alt="Logo Naturals Samada" class="brand-logo">
+    </div>
+    <div class="brand-text">
+      <h2>Natural's Samada</h2>
+      <p>Farmacia Naturista</p>
+    </div>
+  </div>
+
+  <!-- Titulo y subtitulo -->
+  <div class="login-intro">
+    <h2>Iniciar Sesión</h2>
+    <p class="subtitle">Accede a tu cuenta para gestionar tus pedidos y preferencias</p>
+  </div>
+
+  <!-- Formulario de inicio sesion -->
+  <form class="container" (ngSubmit)="iniciarSesion()">
+    <h2>Bienvenido de vuelta</h2>
+
+    <!-- Campo de correo -->
+    <label for="email"><i class="far fa-envelope"></i> Correo electrónico</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="tu@email.com"
+      [(ngModel)]="email"
+      name="email"
+    >
+    <p *ngIf="mensajeEmail" style="color: red; font-size: 17px;">{{ mensajeEmail }}</p>
+
+    <!-- Campo de contraseña -->
+    <label for="password"><i class="fa-solid fa-lock"></i> Contraseña</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="••••••••"
+      [(ngModel)]="password"
+      name="password"
+    >
+    <p *ngIf="mensajePassword" style="color: red; font-size: 17px;">{{ mensajePassword }}</p>
+
+    <!-- Campos adicionales -->
+    <div class="options">
+      <label><input type="checkbox"> Recordarme</label>
+      <a routerLink="/recuperacion" routerLinkActive="active" class="nav-link">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <!-- Boton de iniciar -->
+    <button type="submit" class="btn-login">Iniciar Sesión</button>
+
+    <!-- Mensaje de error -->
+    <p *ngIf="mensajeError" style="color: red; font-size: 15px; text-align: center;">{{mensajeError}}</p>
+
+    <!-- Enlace para el registro -->
+    <p class="register-text">
+      ¿No tienes una cuenta?
+      <a routerLink="/registro" routerLinkActive="active" class="nav-link">Regístrate aquí</a>
+    </p>
+  </form>
+
+  <!-- Recuadro informativo -->
+  <div class="benefits-container">
+    <h3>Beneficios de tener cuenta</h3>
+    <ul class="benefits-list">
+      <li>
+        <i class="fa-solid fa-check"></i>
+        Historial de compras y seguimiento de pedidos
+      </li>
+      <li>
+        <i class="fa-solid fa-check"></i>
+        Ofertas exclusivas y descuentos especiales
+      </li>
+      <li>
+        <i class="fa-solid fa-check"></i>
+        Recomendaciones personalizadas de productos
+      </li>
+    </ul>
+  </div>
+
+</div>
